@@ -75,7 +75,7 @@ def pregunta_03():
     df = pd.read_csv('gm_2008_region.csv')
 
     # Asigne a la variable los valores de la columna `fertility`
-    X_fertility = df.fertility.values
+    X_fertility = df.fertility.values.reshape(-1,1)
 
     # Asigne a la variable los valores de la columna `life`
     y_life = df.life.values
@@ -89,8 +89,8 @@ def pregunta_03():
     # Cree El espacio de predicción. Esto es, use linspace para crear
     # un vector con valores entre el máximo y el mínimo de X_fertility
     prediction_space = np.linspace(
-        X_fertility.max(),
         X_fertility.min(),
+        X_fertility.max(),
     ).reshape(-1, 1)
 
     # Entrene el modelo usando X_fertility y y_life
